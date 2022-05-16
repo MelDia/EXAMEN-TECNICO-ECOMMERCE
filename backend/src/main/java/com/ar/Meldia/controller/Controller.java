@@ -36,18 +36,21 @@ public class Controller {
     List<Cart> cart = new ArrayList();
     String DNI = null;
 
+    //obtencion de la lista de productos de la base de datos
     @GetMapping(value = "/all")
     public List<Product> allProduct() throws JsonProcessingException {
         System.out.println(service.findAllProducts());
         return service.findAllProducts();
     }
 
+    //obtencion de la lista de productos del carrito
     @GetMapping(value = "/cart")
     public List<Cart> getCart() {
         System.out.println("List Cart = " + cart.toString());
         return cart;
     }
 
+    //agrega al carrito de a un solo objeto 
     @PostMapping(value = "/add/cart")
     public List<Cart> add(@RequestBody Product p) {
         Cart item = new Cart();
@@ -61,6 +64,7 @@ public class Controller {
         return cart;
     }
 
+    //elimina del carrito
     @DeleteMapping(value = "/remove/cart/{id}")
     public List<Product> removeToCart(@PathVariable("id") Integer id) throws JsonProcessingException {
         Product p = new Product();
@@ -70,19 +74,21 @@ public class Controller {
 
         return allProduct();
     }
-
+    
+    //obteniene el descuento correspondiente a la cantidad de compras realizadas
     @GetMapping(value = "/get/discount/{dni}")
     public List<Product> getDiscount(@PathVariable("dni") String dni) throws JsonProcessingException {
         DNI = dni;
         User u = new User();
         u.setDni(dni);
         Double discount = Functions.setDiscount(cart, serviceU.findUser(u).get().getPrivilege(), serviceU, dni);
-        System.out.println("The uses was founded = " + serviceU.findUser(u).get().getPrivilege());
+        System.out.println("The user was founded = " + serviceU.findUser(u).get().getPrivilege());
         getLastProduct(cart, discount);
 
         return allProduct();
     }
 
+    //finaliza la compra
     @GetMapping(value = "/cart/checkout")
     public List<Product> checkout() throws JsonProcessingException {
         System.out.println("DNI GETTING = " + DNI);
@@ -103,14 +109,16 @@ public class Controller {
         return allProduct();
     }
 
+    //nuevos usuarios VIP
     @GetMapping(value = "/get/new/users/VIP")
     public List<User> getNewUsersVIP() {
-        return serviceU.findUserVIP();
+        return serviceU.findNewUserVIP();
     }
 
+    //todos los usuarios VIP registrados
     @GetMapping(value = "/get/users/VIP")
     public List<User> getUsersVIP() {
-        return serviceU.findAll();
+        return serviceU.findAllVIP();
     }
 
     @GetMapping(value = "/get/off/VIP")

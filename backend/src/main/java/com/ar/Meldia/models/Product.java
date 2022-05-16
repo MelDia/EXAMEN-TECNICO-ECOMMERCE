@@ -1,5 +1,6 @@
 package com.ar.Meldia.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@JsonIgnoreProperties(ignoreUnknown=true)
 @Entity
 @Table(name = "products")
 public class Product implements Serializable {
@@ -65,12 +67,7 @@ public class Product implements Serializable {
     public void setPrice(Double price) {
         this.price = price;
     }
-
-    @Override
-    public String toString() {
-        return "Product{" + "id=" + id + ", name=" + name + ", price=" + price + ", image=" + image + '}';
-    }
-
+    
     public String getImage() {
         return image;
     }
@@ -79,4 +76,8 @@ public class Product implements Serializable {
         this.image = image;
     }
 
+    @Override
+    public String toString() {
+        return "Product{" + "id=" + id + ", name=" + name + ", price=" + price + ", image=" + image + '}';
+    }
 }

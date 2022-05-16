@@ -21,10 +21,13 @@ public class UserService implements IUserService {
     public List<User> findAll() {
         return service.findAll();
     }
+    
+    public List<User> findAllVIP() {
+        return service.findAllVIP();
+    }
 
-    @Override
-    public List<User> findUserVIP() {
-        return service.findUserVIP();
+    public List<User> findNewUserVIP() {
+        return service.findNewUserVIP();
     }
 
     @Override
@@ -35,6 +38,11 @@ public class UserService implements IUserService {
     @Override
     public List<User> findNoVIP() {
         return service.findNoVIP();
+    }
+
+    @Override
+    public List<User> findUserVIP() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
