@@ -1,0 +1,27 @@
+.navbar-brand {
+    color: #6c9d3d;
+    font-size: 30px;
+    font-weight: 800;
+    margin-left: 20px;
+}
+
+.navbar-nav .nav-link {
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #6c9d3d;
+    margin: 0 20px 0 20px;
+    padding: 8px 15px 8px 15px;
+    border-radius: 20px;
+}
+
+.navbar-nav .nav-link.active-link {
+    background-color: #8dc44f;
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+.dropdown-menu .dropdown-item {
+    background-color: whitesmoke;
+    color: #6c9d3d;
+    font-weight: 500;
+}

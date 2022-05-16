@@ -1,0 +1,14 @@
+h3 {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin: 0;
+}
+
+.card {
+    border: none;
+}
+
+.card-header {
+    border: none;
+    border-radius: 20px;
+}

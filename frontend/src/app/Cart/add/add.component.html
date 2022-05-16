@@ -1,0 +1,53 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h3>Your purchases</h3>
+    </div>
+    <div class="card-body">
+      <!--BEGIN TABLE-->
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cart of inCart; let last = last;" class="text-center">
+            <td><img src="{{cart.product.image}}"></td>
+            <td>{{cart.product.name}}</td>
+            <td>${{cart.product.price}}</td>
+            <td>
+              <button (click)="removeToCart(cart)" class="btn" style="margin-left: 10px"><i
+                  class="bi bi-trash"></i></button>
+            </td>
+            <td *ngIf="last">
+              <p> TOTAL: {{cart.totalPrice}} </p>
+            </td>
+          </tr>
+        </tbody>
+        <!--END TABLE-->
+      </table>
+    </div>
+  </div>
+
+  <!---->
+  <form class="row g-3 mt-5">
+    <h5>Introduce your DNI to get a discount!</h5>
+    <div class="col-auto">
+      <label class="visually-hidden">DNI</label>
+      <input type="text" id="username" name="username" #username class="form-control" placeholder="DNI">
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn mb-3" (click)="getDiscount(username.value)">Confirm identity</button>
+    </div>
+  </form>
+
+  <!---->
+  <div class="d-flex justify-content-center mt-5">
+    <button (click)="checkout()" class="btn checkout">Checkout your order <i class="bi bi-chevron-right"></i> </button>
+  </div>
+  <!---->
+</div>

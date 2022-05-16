@@ -1,0 +1,37 @@
+/**BANNER**/
+.banner {
+    background-image: url(https://res.cloudinary.com/baby9728/image/upload/v1652663728/banner_xqaozr.jpg);
+    height: 600px;
+    background-position: center top;
+    background-size: cover;
+}
+
+.content {
+    top: 30%;
+    left: 20%;
+    position: absolute;
+}
+
+.content h1 {
+    color: #FFCD38;
+    background-color: rgba(245, 245, 245, 0.75);
+    border-radius: 20px;
+    padding: 20px;
+    font-size: 60px;
+    font-weight: 800;
+}
+
+.content a {
+    text-decoration: none;
+    background-color: #6c9d3d;
+    color: whitesmoke;
+    padding: 10px 15px 10px 15px;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 22px;
+}
+
+.content a:hover {
+    background-color: whitesmoke;
+    color: #6c9d3d;
+}
